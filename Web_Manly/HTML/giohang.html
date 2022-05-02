@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Bán Mĩ Phẩm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <style>
+   
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    
+     .jumbotron {
+      margin-bottom: 0;
+      background-color: #D2D7D3;
+    }
+   
+    
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .panel-footer{
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="jumbotron" >
+    <div class="container text-center" >
+      <h1>MĨ PHẨM NAM</h1>
+      <p>Sắc đẹp phái mạnh </p>
+    </div>
+  </div>
+  <div class="row" id="menuTop">
+    <div class="col-md-2">
+        <img id="logo" src="../images/logo/logo-menly.png" width= "230" height="70">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6">
+            <nav class="navbar">
+                    <div class="container-fluid">
+                          <ul class="nav navbar-nav">
+                            <li class="active"><a href="Index.html">TRANG CHỦ</a></li>
+                            <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
+                            <li><a href="tintuc.html">TIN TỨC</a></li>
+                            <li><a href="sitemap.html">SITEMAP</a></li>
+                            <li><a href="tatcasanpham.html">TẤT CẢ SẢN PHẨM</a></li>
+                          </ul>
+                      </div>
+             </nav>
+          </div>
+              <div class="col-md-3">
+                <ul class="nav navbar-nav" style="margin-top: 10px;">
+                  <div class="input-group">
+                    <input id="txtTimKiem" type="text" class="form-control" placeholder="Nhập mã sản phẩm" name="search">
+                      <div class="input-group-btn" >
+                            <a onclick="timkiem()">
+                              <button class="btn btn-success" id="btnTimKiem" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                              </button>
+                            </a>
+                      </div>
+                 </div>           
+                                        
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul class="nav navbar-nav">
+                          <li><a href="taikhoan.html"><span class="glyphicon glyphicon-user"></span> Tài khoản</a></li>
+                          <li><a href="giohang.html"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+                  </ul>
+              </div>
+        </div>
+     </div>
+</div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-danger">
+         <div class="panel-heading" style="background-color: rgb(199, 28, 133); color: cornsilk;">GIỎ HÀNG</div>
+      </div>
+      <div id="thongBao" style="font-weight: bold;color: red;font-size: 30px"></div>
+      <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Tên sp</th>
+                <th>Đơn giá</th>
+                <th>Hình ảnh</th>
+                <th>Số Lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+
+        <tbody id="giohang">
+            <td id="gioHangTenSP"></td>
+            <td id="gioHangDonGiaSP"></td>
+            <td id="gioHangHinhAnhSP"></td>
+            <td id="gioHangSoLuongSP"></td>
+            <td id="gioHangThanhTienSP"></td>
+
+        </tbody>
+    </table>
+    <label for="">Tổng hoá đơn:</label>
+    <button type="button" id="btnMuaHang" class="btn btn-danger btn-block" data-toggle="modal" onclick="hienThiGioHang()">MUA NGAY</button>
+    </div>
+  </div>
+  
+  </div>
+  <footer class="container-fluid text-center" style="border-top: 1px solid grey">
+    <div class="row">
+        <div class="col-md-4">
+        <h2>CÁCH THỨC THANH TOÁN</h2>
+        <img class="thanhtoan" src="../images/thanhtoan/thanhtoan1.png" width="15%">
+        <img class="thanhtoan" src="../images/thanhtoan/thanhtoan2.png"width="10%">
+        <img class="thanhtoan" src="../images/thanhtoan/thanhtoan3.png"width="15%">
+        </div>
+        <div class="col-md-4">
+        <h2>DỊCH VỤ GIAO HÀNG</h2>
+        <img src="../images/Shipping/Shipping1.png"width="20%" height="80px">
+        <img src="../images/Shipping/shipping2.png"width="20%">
+        <img src="../images/Shipping/shpiing3.png"width="20%" >
+        </div>
+        <div class="col-md-4">
+        <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+        <p style="text-align: left; margin-left: 30px;font-weight: bold;">Mua Hàng: 1800 0000</p>
+        <p style="text-align: left; margin-left: 30px;font-weight: bold;">CSKH: 1800 1200</p>
+        </div>
+    </div>
+  </footer>
+</div>
+<script type="text/javascript" src="../JS/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../JS/bootstrap.js"></script>
+<script src="../JS/JS.js"></script>
+</body>
+</html>

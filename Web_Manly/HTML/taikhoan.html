@@ -1,0 +1,237 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Bán Mĩ Phẩm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../CSS/bootstrap.css">
+  <script type="text/javascript" src="../JS/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../JS/bootstrap.js"></script>
+  <script>
+    $(document).ready(function(){
+
+        function ktEmail(){
+          var re = /[A-Za-z]\w{2,}(@gmail.com)$/;
+          var mail = $("#email").val();
+          if(re.test(mail)){
+            $("#ermail").html("*");
+            return true;
+          }
+          else {
+            $("#ermail").html("*Vui lòng nhập mail dưới dạng: abc@gmail.com");
+            return false;
+          }
+        }
+
+
+        function ktPsw(){
+          var re = /[A-Za-z]\w{2,}$/;
+          var mail = $("#psw").val();
+          if(re.test(mail)){
+            $("#erpsw").html("*");
+            return true;
+          }
+          else {
+            $("#erpsw").html("*Bắt buộc nhập ");
+            return false;
+          }
+        }
+
+        $("#email").blur(function(){
+        ktEmail();
+        if(ktEmail() === false){
+            $("#check").attr("disabled","disabled");}
+      });
+
+
+
+
+
+        $("#psw").blur(function(){
+        ktPsw();
+        if(ktEmail()&&ktPsw() === true){
+            $("#check").removeAttr("disabled");
+          }
+          else 
+            $("#check").attr("disabled","disabled");
+      });
+
+
+    })
+    
+  </script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+      background-color: #D2D7D3;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .panel-footer{
+      color: red;
+      font-weight: bold;
+    }
+    .modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>MĨ PHẨM NAM</h1>      
+    <p>Sắc đẹp phái mạnh </p>
+  </div>
+</div>
+
+<div class="row" id="menuTop">
+  <div class="col-md-2">
+      <img id="logo" src="../images/logo/logo-menly.png" width= "230" height="70">
+  </div>
+  <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-6">
+          <nav class="navbar">
+                  <div class="container-fluid">
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="Index.html">TRANG CHỦ</a></li>
+                          <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
+                          <li><a href="tintuc.html">TIN TỨC</a></li>
+                          <li><a href="sitemap.html">SITEMAP</a></li>
+                          <li><a href="tatcasanpham.html">TẤT CẢ SẢN PHẨM</a></li>
+                        </ul>
+                    </div>
+           </nav>
+        </div>
+            
+            <div class="col-md-6">
+              <ul class="nav navbar-nav ">
+                        <li><a href="taikhoan.html"><span class="glyphicon glyphicon-user"></span> Tài khoản</a></li>
+                        <li><a href="giohang.html"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng</a></li>
+                </ul>
+            </div>
+      </div>
+   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+				<div id="mymodal" class="modal-fade" role="dialog">
+        			<div class="modal-dialog">
+           	 			<div class="modal-content">
+                			<div class="modal-header">
+                          
+                          <h4> ĐĂNG NHẬP</h4>
+                   		</div>
+                   			<div class="modal-body" style="padding:40px 50px;">
+                   				<form class="form">
+                   				<div class="form-group">
+     								          <label for="email"><span class="glyphicon glyphicon-user"></span>Tên đăng nhập:</label>     		   
+       											    <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email">
+                                <span id="ermail" style="color: #6f6e5c">(*)</span>      										 
+     								        </div>            					 								
+           								  <div class="form-group">
+              								<label for="sv"><span class="glyphicon glyphicon-lock"></span>Mật Khẩu:</label>
+                							<input type="password" class="form-control" id="psw" placeholder="Nhập password" min="1" max="10">
+                              <span id="erpsw" style="color: #6f6e5c">(*)</span>             
+           								  </div>
+                      			</form>
+                              <button type="button" class="btn btn-success btn-block" disabled="disabled" data-toggle="modal" data-target="#thongbao" id="check">Đăng nhập</button>
+                      			<div class="modal-footer">
+                   				 
+                            <p>Not a member? <a href="#" data-toggle="modal" data-target="#dangki">Sign Up</a></p>
+              				 	</div> 
+                   			</div>
+               			 </div>
+            		</div>
+        		</div> 
+        	</div>       
+   
+  </div>
+</div>
+  <div class="modal fade" id="thongbao" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-center">
+          <div class="modal-body">
+              <p>Bạn đã đăng nhập thành công</p>
+              <button type="button" class="btn" data-dismiss="modal" style="background: #007565; color: white ">Đóng</button>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dangki" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>ĐĂNG KÍ</h4>
+        </div>
+        <div class="modal-body" >
+          <form role="form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="email" placeholder="Nhập email">
+              <span id="ermail" style="color: #6f6e5c">(*)</span>             
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-lock"></span> Mật khẩu</label>
+              <input type="password" class="form-control" id="psw" placeholder="Nhập password">
+              <span id="ermail" style="color: #6f6e5c">(*)</span>             
+            </div>
+              <button type="submit" class="btn btn-success btn-block">Đăng kí</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+
+
+
+
+
+
+<footer class="container-fluid text-center" style="border-top: 1px solid grey">
+  <div class="row">
+      <div class="col-md-4">
+      <h2>CÁCH THỨC THANH TOÁN</h2>
+      <img class="thanhtoan" src="../images/thanhtoan/thanhtoan1.png" width="15%">
+      <img class="thanhtoan" src="../images/thanhtoan/thanhtoan2.png"width="10%">
+      <img class="thanhtoan" src="../images/thanhtoan/thanhtoan3.png"width="15%">
+      </div>
+      <div class="col-md-4">
+      <h2>DỊCH VỤ GIAO HÀNG</h2>
+      <img src="../images/Shipping/Shipping1.png"width="20%" height="80px">
+      <img src="../images/Shipping/shipping2.png"width="20%">
+      <img src="../images/Shipping/shpiing3.png"width="20%" >
+      </div>
+      <div class="col-md-4">
+      <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+      <p style="text-align: left; margin-left: 30px;font-weight: bold;">Mua Hàng: 1800 0000</p>
+      <p style="text-align: left; margin-left: 30px;font-weight: bold;">CSKH: 1800 1200</p>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

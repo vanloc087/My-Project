@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Bán Mĩ Phẩm</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="..\css\bootstrap.css">
+	<script type="text/javascript" src="..\js\jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="..\js\bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="..\css\signUp.css">
+	<script>
+		$(document).ready(function(){
+
+			function ktEmail(){
+				var re = /[A-Za-z]\w{2,}(@gmail.com)$/;
+				var mail = $("#email").val();
+				if(re.test(mail)){
+					$("#ermail").html("*");
+					return true;
+				}
+				else {
+					$("#ermail").html("*Vui lòng nhập mail dưới dạng: abc@gmail.com");
+					return false;
+				}
+			}
+			function ktName(){
+				var re = /[A-Z][a-z]{2,}$/;
+				var name = $("#name").val();
+				if(re.test(name)){
+					$("#ername").html("*");
+					return true;
+				}
+				else {
+					$("#ername").html("*Vui lòng nhập tên dưới dạng: Abc");
+					return false;
+				}
+			}
+
+			$("#email").blur(function(){
+				ktEmail();
+				if(ktEmail() === false){
+					var checkbox = document.getElementsByName("checkbox");
+					for ( i=0; i<checkbox.length; i++){
+						checkbox[i].checked = false
+					}
+					$("#check").attr("disabled","disabled");
+				}	
+			});
+
+
+			$("#name").blur(function(){
+				ktName();
+				if(ktName() === false){
+					var checkbox = document.getElementsByName("checkbox");
+					for ( i=0; i<checkbox.length; i++){
+						checkbox[i].checked = false
+					}
+					$("#check").attr("disabled","disabled");
+				}			
+			});
+
+
+			$("input[type='checkbox']").click(function(){
+				if(ktEmail() && ktName()){
+					var count=0;
+					var checkbox = document.getElementsByName("checkbox");
+					for ( i=0; i<checkbox.length; i++){
+						if (checkbox[i].checked === true)
+							count ++;
+					}
+					if($("#check").is(":disabled") && count>0 )
+						$("#check").removeAttr("disabled");
+					
+					else if ($("#check").not(":disabled") && count==0)
+						$("#check").attr("disabled","disabled");
+					}
+				else {
+					$("#check").attr("disabled","disabled");
+					var checkbox = document.getElementsByName("checkbox");
+					for ( i=0; i<checkbox.length; i++){
+						checkbox[i].checked = false
+					}
+				}
+				})	
+	})
+	</script>
+</head>
+<body>
+	<div class="container" style="width: 35%">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="text-center">
+					<img src="../images/logo/logo-menly.png" width="30%">
+					<h3>Đăng ký để nhận thêm thông tin</h3>
+				</div>
+				
+				<p>Cảm ơn bạn đã quan tâm tham gia danh sách gửi thư của chúng tôi. Vui lòng điền thông tin bên dưới và nhấp Đăng ký.</p>
+				<form>
+				    <div class="form-group">
+			      		<label for="email">Email:</label>
+				      	<input type="email" class="form-control" id="email" placeholder="Enter email" name="email"><span id="ermail" style="color: #6f6e5c">(*)</span>
+				    </div>
+				    <div class="form-group">
+				      	<label for="name">First name:</label>
+				      	<input type="text" class="form-control" id="name" placeholder="Enter name" name="name"><span id="ername" style="color: #6f6e5c">(*)</span>
+				    </div>
+				    <div class="form-group">
+					    <p><strong>Các tin bạn muốn nhận</strong></p>
+					    <div class="checkbox">
+					      	<label class="check">Sự kiện<input type="checkbox" name="checkbox"><span class="checkmark"></span></label>
+					    </div>
+					    <div class="checkbox">				    	
+					      	<label class="check">Gia đình và trẻ em<input type="checkbox" name="checkbox"><span class="checkmark"></span></label>
+					    </div>
+					    <div class="checkbox">		    	
+					      	<label class="check">Danh sách mong muốn<input type="checkbox" name="checkbox"><span class="checkmark"></span></label>
+					    </div>
+					    <div class="checkbox">			    	
+					      	<label class="check">Tin tức mỗi ngày<input type="checkbox" name="checkbox"><span class="checkmark"></span></label>
+					    </div>
+				    </div>
+				    	
+				</form>	
+				<button type="submit" class="btn btn-warning btn-block" disabled="disabled" id="check" data-toggle="modal" data-target="#myModal">Đăng ký</button>			
+			</div>
+		</div>
+	</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      	<div class="modal-content text-center">
+	        <div class="modal-body">
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          	<p>Bạn đã đăng ký thành công</p>
+	          	<button type="button" class="btn" data-dismiss="modal" style="background: #007565; color: white ">Đóng</button>
+	        </div>
+    	</div>
+    </div>
+ </div>
+</body>
+</html>
